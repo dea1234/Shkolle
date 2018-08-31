@@ -21,9 +21,9 @@
 
     /* Add styles to the form container */
     .form-container {
-      max-width: 300px;
+      max-width: 200px;
       padding: 10px;
-      background-color: white;
+      background-color: #e6e6ff;
     }
 
     /* Full-width input fields */
@@ -43,7 +43,7 @@
 
     /* Set a style for the submit/login button */
     .form-container .btn {
-      background-color: #4CAF50;
+      background-color: #b3b3ff;
       color: white;
       padding: 16px 20px;
       border: none;
@@ -55,7 +55,7 @@
 
     /* Add a red background color to the cancel button */
     .form-container .cancel {
-      background-color: red;
+      background-color: #6666ff;
     }
 
     /* Add some hover effects to buttons */
@@ -97,7 +97,8 @@
           'showNormalUser',
           'showNormalUser',
           'home',
-          'showLogin'
+          'showLogin',
+          'indexh'
         );
 
         ?>
@@ -230,7 +231,7 @@
 
       <div class="form-popup" id="myForm">
         <form method="POST" action="index.php?controller=user&action=subscribe" class="form-container">
-          <h1>Abonohu!</h1>
+          <h1 style="font-family: courier">Abonohu</h1>
 
           <label for="name"><b>Emri</b></label>
           <input type="text" placeholder="  Emri" name="name" required>
@@ -271,14 +272,14 @@
       <i class="ti-light-bulb"></i>
       <h4>Informacion</h4>
       <p>Mesoni si te trajtoni kafshet tuaja, nje guide per te qene nje pronar i mire.</p>
-      <a href="#" class="cta">Lexo me shume<span class="ti-angle-right"></a>
+      <a href="index.php?controller=user&action=info" class="cta">Lexo me shume<span class="ti-angle-right"></a>
     </div>
 
     <div class="service service3">
       <i class="ti-target"></i>
       <h4>Ndihmoni miqte e humbur</h4>
       <p>Klikoni per te pare postimet mbi kafshet e humbura, kontaktoni pronarin</p>
-      <a href="index.php?controller=posts&action=indexh class="cta">Lexo me shume<span class="ti-angle-right"></span></a>
+      <a href="index.php?controller=posts&action=indexh" class="cta">Lexo me shume<span class="ti-angle-right"></span></a>
     </div>
   </div>
 </section>

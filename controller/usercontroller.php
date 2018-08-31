@@ -327,6 +327,12 @@ class UserController{
 
 
 		} 
+	   	public function info() {
+
+			require_once('view/pages/info.php');
+
+
+		} 
 
 
 
