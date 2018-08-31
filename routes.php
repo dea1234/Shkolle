@@ -35,9 +35,8 @@
 
 	}
 
-			 $controllers = array('posts' => ['index','show', 'addPost', 'showPost'],
+			 $controllers = array('posts' => ['index','show', 'addPost', 'showPost', 'indexh'],
 			 					  'pages' => ['home', 'error','welcome','profile','subscribeMessage'],
-<<<<<<< HEAD
 								  'user' => ['signup','signupVet','signupStore','login','subscribe', 'logout', 'showNormalUser', 'welcome','showVet','showStore','showLogin','confirm', 'home', 'confirmEmail','facebook', 'sendMailPassword','resetPassword', 'showResetPassword', 'changePassword', 'showChangePassword', 'subscribe', 'artikuj', 'kontakte'],
 								  'forum'=>['index','show', 'addPost', 'showPost']
 
@@ -45,9 +44,6 @@
 
 
 								);
-=======
-								  'user' => ['signup','signupVet','signupStore','login','subscribe', 'logout', 'showNormalUser', 'welcome','showVet','showStore','showLogin','confirm', 'home', 'confirmEmail','facebook', 'sendMailPassword','resetPassword', 'showResetPassword', 'changePassword', 'showChangePassword', 'subscribe']);
->>>>>>> 91fd5e281ede724f20b002794f8ce4bbe11ae904
 
 
 			 if (array_key_exists($controller, $controllers)) 

@@ -10,6 +10,10 @@
       $posts = Post::all();
       require_once('view/posts/postime.php');
     }
+    public function indexh() {
+      $posts = Post::all();
+      require_once('view/posts/postimehumb.php');
+    }
 
     public function addPost() {
       require_once('controller/usercontroller.php');
@@ -46,7 +50,7 @@
           { 
            
               $fileNewName = uniqid().".".$fileType;
-              $fileDestination = 'upload/'.$fileNewName;
+              $fileDestination = 'uploads/'.$fileNewName;
               move_uploaded_file($fileTmpName, $fileDestination);
           
           }

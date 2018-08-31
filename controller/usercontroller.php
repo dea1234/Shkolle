@@ -325,13 +325,13 @@ class UserController{
 
 			require_once('view/pages/kontakte.php');
 
-<<<<<<< HEAD
+
 		} 
 
 
 
-=======
->>>>>>> 91fd5e281ede724f20b002794f8ce4bbe11ae904
+
+
 		public function confirm(){
 			/*echo "<script> alert('Ju lutem konfirmoni te dhenat tuaja! ');</script>"; */
 			
@@ -466,11 +466,11 @@ class UserController{
 
 						$mail->isHTML(true);                                  
 						$mail->Subject = 'Confirmation email';
-<<<<<<< HEAD
+
 						$mail->Body    = "Hello there! Click here to be able to change your password <a href='http://localhost/project/index.php?controller=user&action=showChangePassword&token=$token'  >Click here</a>";
-=======
+
 						$mail->Body    = "Hello there! Click here to be able to change your password <a href='http://localhost/taleas/index.php?controller=user&action=showChangePassword&token=$token'  >Click here</a>";
->>>>>>> 91fd5e281ede724f20b002794f8ce4bbe11ae904
+
 
 						$mail->send();
 						echo 'Message has been sent';

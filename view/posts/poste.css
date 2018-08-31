@@ -1,6 +1,19 @@
-body, html{
-     height: 100%;
- 	background-repeat: no-repeat;
- 	background-color: #CCDDEE;
- 	font-family: 'Oxygen', sans-serif;
+body {
+  background-color: #f0f0f0;
+  font-family: roboto;
+}
+.page-header{
+	text-align: center;
+}
+.page-header:hover {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+}
+.comment-user{
+text-align: center;
+font-family: Georgia;
+font-size: 20px;
+    text-decoration: underline;
+
 }

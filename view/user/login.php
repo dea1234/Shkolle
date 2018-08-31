@@ -88,7 +88,6 @@
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<<<<<<< HEAD
 
 <script>
 
@@ -181,8 +180,6 @@
       version          : 'v3.1'
     });
   };
-
->>>>>>> 91fd5e281ede724f20b002794f8ce4bbe11ae904
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}

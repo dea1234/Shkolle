@@ -122,12 +122,8 @@
                   
                     $mail->isHTML(true);                                  
                     $mail->Subject = 'New post';
-<<<<<<< HEAD
                     $mail->Body    = "Hey there! Look at this amazing new post <a href='http://localhost/project/index.php?controller=posts&action=showPost&id=$id' >Click here</a>";
-=======
                     $mail->Body    = "Hey there! Look at this amazing new post <a href='http://localhost/taleas/index.php?controller=posts&action=showPost&id=$id' >Click here</a>";
->>>>>>> 91fd5e281ede724f20b002794f8ce4bbe11ae904
-
                     $mail->send();
                   
                    

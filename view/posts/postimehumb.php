@@ -28,7 +28,7 @@
                   <?php if($post->content != ''): ?>
                     <div class="comment-post">
 
-                      <textarea style="border: solid; text-align: left;" rows="5" cols="70" readonly>
+                      <textarea style="border: solid" rows="5" cols="50" readonly>
                         <?php echo $post->content; ?>
                       </textarea>
 
