@@ -10,10 +10,6 @@
         <link rel="stylesheet" type="text/css" href="view/user/main.css">
 
   </head>
-   
-
-
-
 
   <body id="page">
 
@@ -39,13 +35,6 @@
      </div>
     </div>
   </div>
-  	
-  	
-
-
-
-
-
   </body>
   </html>
 

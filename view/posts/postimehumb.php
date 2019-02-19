@@ -7,7 +7,7 @@
  <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <h2 class="page-header">Postime</h2>
+      <h2 class="page-header">Postimet per miqte tane ne nevoje!</h2>
       <section class="comment-list">
         <!-- First Comment -->
         <?php foreach($posts as $post) { ?>

@@ -12,18 +12,16 @@
 				$confirm_code = substr($confirm_code,0,12);
 
 				
-				
-
 				$db = Db::getInstance();
 
-				$confirm = $FBuserID = 0;
+				$confirm = 0;
 
 				$hashed_pass=password_hash($password, PASSWORD_DEFAULT);
 
-				$result = $db->prepare("INSERT INTO user(name,email,password,confirm,confirm_code,FBuserID) VALUES (:name, :email,:hashed_pass,:confirm,:confirm_code,:FBuserID)");
+				$result = $db->prepare("INSERT INTO user(name,email,password,confirm,confirm_code) VALUES (:name, :email,:hashed_pass,:confirm,:confirm_code)");
 
 				
-				$result->execute(array('name' => $name, 'email' => $email , 'hashed_pass' => $hashed_pass , 'confirm' =>$confirm ,'confirm_code'=> $confirm_code, 'FBuserID'=> $FBuserID));
+				$result->execute(array('name' => $name, 'email' => $email , 'hashed_pass' => $hashed_pass , 'confirm' =>$confirm ,'confirm_code'=> $confirm_code));
 				
 
 				return $confirm_code;
@@ -36,50 +34,7 @@
 			}	
 		}
 
-
-		public function createStoreUser($fname,$lname,$username,$phone,$location,$email,$password){
-
-			try{
-				$confirm_code='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!()';
-				$confirm_code=str_shuffle($confirm_code);
-				$confirm_code = substr($confirm_code,0,12);
-
-				$db = Db::getInstance();
-
-				$hashed_pass=password_hash($password, PASSWORD_DEFAULT);
-
-				$confirm = $FBuserID = 0;
-				$name = $fname.' '.$lname;
-				$type = 'store';
-				
-				$result = $db->prepare("INSERT INTO user(name,email,password,confirm,confirm_code,FBuserID,type) VALUES (:name, :email,:hashed_pass,:confirm,:confirm_code,:FBuserID,:type)");
-
-				
-				$result->execute(array('name' => $name, 'email' => $email , 'hashed_pass' => $hashed_pass , 'confirm' =>$confirm ,'confirm_code'=> $confirm_code, 'FBuserID'=> $FBuserID, 'type'=> $type));
-
-				$result = $db->prepare("SELECT id FROM user WHERE email = ?");
-				$result->execute([$email]);
-				$user = $result->fetch();
-				$id = $user["id"];
-
-				 $result = $db->prepare("INSERT INTO information(id,location,username,phone) VALUES (:id,:location,:username,:phone)");
-
-				$result->execute(array('id' => $id, 'location' =>$location ,'phone' => $phone ,  'username'=>$username));
-
-				return $confirm_code;
-
-			}
-
-			catch (PDOException $e) {
-				echo "The user could not be added.<br>".$e->getMessage();
-			}
-
-
-		}
-
-
-
-		public function createVetUser($fname,$lname,$username,$phone,$location,$email,$password){
+		public function createMUser($username,$bio,$genre,$email,$password){
 
 			try{
 				$confirm_code='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!()';
@@ -89,23 +44,14 @@
 				$db = Db::getInstance();
 
 				$hashed_pass=password_hash($password, PASSWORD_DEFAULT);
-				$confirm = $FBuserID = 0;
-				$name = $fname.' '.$lname;
-				$type = 'vet';
+				$confirm = 0;
 				
-				$result = $db->prepare("INSERT INTO user(name,email,password,confirm,confirm_code,FBuserID,type) VALUES (:name, :email,:hashed_pass,:confirm,:confirm_code,:FBuserID,:type)");
+				$type = '1';
+				
+				$result = $db->prepare("INSERT INTO user(name,email,password,confirm,confirm_code,type, bio, genre) VALUES (:name, :email,:hashed_pass,:confirm,:confirm_code,:type, :bio, :genre)");
 
 				
-				$result->execute(array('name' => $name, 'email' => $email , 'hashed_pass' => $hashed_pass , 'confirm' =>$confirm ,'confirm_code'=> $confirm_code, 'FBuserID'=> $FBuserID, 'type'=> $type));
-
-				$result = $db->prepare("SELECT id FROM user WHERE email = ?");
-				$result->execute([$email]);
-				$user = $result->fetch();
-				$id = $user["id"];
-
-				 $result = $db->prepare("INSERT INTO information(id,location,username,phone) VALUES (:id,:location,:username,:phone)");
-
-				$result->execute(array('id' => $id, 'location' =>$location ,'phone' => $phone ,  'username'=>$username));
+				$result->execute(array('name' => $name, 'email' => $email , 'hashed_pass' => $hashed_pass , 'confirm' =>$confirm ,'confirm_code'=> $confirm_code,'type'=> $type, 'bio'=> $bio, 'genre'=>$genre));
 
 				return $confirm_code;
 
@@ -172,33 +118,7 @@
 
 		}
 
-		public function reset($password,$email,$token)
-		{
-
-			$db = Db::getInstance();
-
-			$result = $db->prepare("SELECT * FROM user WHERE email = ?");
-			$result->execute([$email]);
-			$user = $result->fetch();
-
-			if($user["token"] == $token)
-			{
-			
-
-				$password = password_hash($password, PASSWORD_DEFAULT);
-
-				if($user["id"] > 0)
-				{
-
-				$result = $db->prepare("UPDATE user SET password = :password WHERE email = :email ");
-
-				$result->execute(array(':password' => $password ,':email' => $email ));
-				return true;
-
-				}
-			
-			}
-		}
+	
 
 
 		public function createSubscribeUser($name,$email){
@@ -248,31 +168,6 @@
 			
 
 		}
-
-
-		public function updateToken($email){
-
-			$db = Db::getInstance();
-				$token = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!()';
-				$token = str_shuffle($token);
-				$token = substr($token,0,12);
-
-			$result = $db->prepare("UPDATE user SET token = '$token' WHERE email=?");
-			
-			
-			if($result->execute([$email]))
-			{
-			return $token;
-			}
-			else 
-			{
-				return false;
-			}
-
-
-		}
-
-
 
 	}
 

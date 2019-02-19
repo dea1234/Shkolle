@@ -79,19 +79,7 @@ class UserController{
 	}
 
 
-	public function signupStore(){
-
-		if (isset($_POST["fname"]))
-		{
-			$fname = $_POST["fname"];
-		}
-
-
-
-		if (isset($_POST["lname"]))
-		{
-			$lname = $_POST["lname"];
-		}
+	public function signupM(){
 
 
 		if (isset($_POST["username"]))
@@ -100,106 +88,15 @@ class UserController{
 		}
 
 
-		if (isset($_POST["phone"]))
+		if (isset($_POST["bio"]))
 		{
-			$phone = $_POST["phone"];
+			$bio = $_POST["bio"];
 		}
 
 
-		if (isset($_POST["location"]))
+		if (isset($_POST["genre"]))
 		{
-			$location = $_POST["location"];
-		}
-
-
-		if (isset($_POST["email"]))
-		{
-			$email = $_POST["email"];
-
-		} 
-
-
-
-		if (isset($_POST["password"]))
-		{
-			$password= $_POST["password"];
-
-		}
-
-		if(User::exists($email) == true || $fname == '' ||  $email == '' || $password == '' || $lname == '' || $username == '' || $location == '' || !filter_var($email, FILTER_VALIDATE_EMAIL)  ){
-			Header('location: index.php?controller=user&action=showStoreUser');
-		}
-
-		else {
-			$created = User::createStoreUser($fname,$lname,$username,$phone,$location,$email,$password);
-			if($created){
-				$mail = new PHPMailer(true);                              
-				try {
-						    //Server settings
-					$mail->SMTPDebug = 0;                                 
-					$mail->isSMTP();                                      
-					$mail->Host = 'smtp.gmail.com';  
-					$mail->SMTPAuth = true;                               
-					$mail->Username = 'petprojecttaleas@gmail.com';                
-					$mail->Password = 'Serena1234';                           
-					$mail->SMTPSecure = 'tls';                            
-					$mail->Port = 587;                                    
-
-
-					$mail->setFrom('petprojecttaleas@gmail.com', '4 Paw Friends');
-					$mail->addAddress($email);    
-
-
-					$mail->isHTML(true);                                  
-					$mail->Subject = 'Confirmation email';
-					$mail->Body    = "Faleminderit qe u regjistruat. Meqenese ju zgjodhet opsionin profesional, na duhen kredencialet tuaja per verifikim autorizimi. Vetem pasi te na i dergoni mund tju lejojme akses ne accountin tuaj";
-
-					$mail->send();
-					echo 'Message has been sent';
-					header('location: view/pages/confirm.php');
-					exit();
-
-				}
-
-				catch (Exception $e) {
-					echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-				}
-
-			}
-
-		}
-	}
-
-	public function signupVet(){
-
-		if (isset($_POST["fname"]))
-		{
-			$fname = $_POST["fname"];
-		}
-
-
-
-		if (isset($_POST["lname"]))
-		{
-			$lname = $_POST["lname"];
-		}
-
-
-		if (isset($_POST["username"]))
-		{
-			$username = $_POST["username"];
-		}
-
-
-		if (isset($_POST["phone"]))
-		{
-			$phone = $_POST["phone"];
-		}
-
-
-		if (isset($_POST["location"]))
-		{
-			$location = $_POST["location"];
+			$genre = $_POST["genre"];
 		}
 
 
@@ -216,8 +113,8 @@ class UserController{
 
 		}
 
-		if( User::exists($email) == true || $fname == '' ||  $email == '' || $password == '' || $lname == '' || $username == '' || $location == '' || !filter_var($email, FILTER_VALIDATE_EMAIL)  ){
-			Header('location: index.php?controller=user&action=showStoreUser');
+		if( User::exists($email) == true ||  $email == '' || $password == '' || $username == '' || $genre == '' ||$bio == '' || !filter_var($email, FILTER_VALIDATE_EMAIL)  ){
+			Header('location: index.php?controller=user&action=showMUser');
 		}
 		else {
 			$created = User::createVetUser($fname,$lname,$username,$phone,$location,$email,$password);
@@ -356,12 +253,23 @@ class UserController{
 
 
 
-		public function showNormalUser(){	 if(isset($_SESSION["id"])){  
+		public function showNormalUser(){
+			if(isset($_SESSION["id"])){  
          
           header('location: index.php?controller=user&action=welcome');
           exit();
         }
 			require_once('view/user/signup.php');
+		}
+
+
+		public function showMUser(){
+			if(isset($_SESSION["id"])){  
+         
+          header('location: index.php?controller=user&action=welcome');
+          exit();
+        }
+			require_once('view/user/signupM.php');
 		}
 
 
@@ -374,24 +282,6 @@ class UserController{
         }
 			require_once('view/user/login.php');
 
-		}
-
-		public function showVet(){
-			if(isset($_SESSION["id"])){  
-         
-          header('location: index.php?controller=user&action=welcome');
-          exit();
-        }
-			require_once('view/user/signupVet.php');
-		}
-
-		public function showStore(){
-			if(isset($_SESSION["id"])){  
-         
-          header('location: index.php?controller=user&action=welcome');
-          exit();
-        }
-			require_once('view/user/signupStore.php');
 		}
 
 		public function home(){
@@ -429,121 +319,6 @@ class UserController{
         }
 			require_once('view/pages/profile.php');
 		}
-
-
-
-		public function sendMailPassword(){
-
-			if(isset($_POST["email"])){
-				$email = $_POST["email"];
-			} 
-
-
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				header('location: index.php?controller=user&action=showResetPassword');
-			}	
-			else
-			{
-				$token = User::updateToken($email);
-
-				if($token != '')
-				{
-
-			
-
-					$_SESSION["email"] = $email;
-
-					$mail = new PHPMailer(true);                              
-					try {
-						    //Server settings
-						$mail->SMTPDebug = 0;                                 
-						$mail->isSMTP();                                      
-						$mail->Host = 'smtp.gmail.com';  
-						$mail->SMTPAuth = true;                               
-						$mail->Username = 'petprojecttaleas@gmail.com';                
-						$mail->Password = 'Serena1234';                           
-						$mail->SMTPSecure = 'tls';                            
-						$mail->Port = 587;                                    
-
-
-						$mail->setFrom('petprojecttaleas@gmail.com', '4 Paw Friends');
-						$mail->addAddress($email);    
-
-
-						$mail->isHTML(true);                                  
-						$mail->Subject = 'Confirmation email';
-
-						$mail->Body    = "Hello there! Click here to be able to change your password <a href='http://localhost/project/index.php?controller=user&action=showChangePassword&token=$token'  >Click here</a>";
-
-						$mail->Body    = "Hello there! Click here to be able to change your password <a href='http://localhost/taleas/index.php?controller=user&action=showChangePassword&token=$token'  >Click here</a>";
-
-
-						$mail->send();
-						echo 'Message has been sent';
-						header('location: view/pages/resetMessage.php');
-						exit();
-
-					}
-
-					catch (Exception $e) {
-						echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-					}
-
-				}
-
-		}
-
-	}
-
-
-
-		public function resetPassword(){
-
-			$email = $_SESSION["email"];
-
-			if(isset($_GET["token"])){
-				$token = $_GET["token"];
-			}
-			
-			if(isset($_POST["password"])){
-				$_SESSION["password"] = $password = $_POST["password"];
-			}
-
-			if(isset($_POST["password1"])){
-				$_SESSION["password1"] = $password1 = $_POST["password1"];
-			}
-
-			if($password != $password1) {
-
-				$_SESSION["error"] = "The passwords don't match";
-				header('location: index.php?controller=user&action=showChangePassword');			
-			}
-			else {
-
-				$_SESSION["error"] = "";
-				$reset = User::reset($password, $email,$token);
-
-				if($reset){
-					header('location: index.php?controller=user&action=login');			
-					
-				}
-
-			}
-
-		}
-
-
-
-		public function showResetPassword(){
-			require_once('view/user/resetPassword.php');
-		}
-
-
-		public function showChangePassword(){
-
-			require_once('view/user/changePassword.php');
-		}
-
 
 		public function subscribe(){
 

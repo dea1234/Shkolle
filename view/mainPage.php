@@ -13,7 +13,7 @@
     .form-popup {
       display: none;
       position: fixed;
-      bottom: 20%;
+      bottom: 10%;
       right: 15px;
       border: 3px solid #f1f1f1;
       z-index: 9;
@@ -92,7 +92,6 @@
          $actions = array(
           'showNormalUser',
           'showVet',
-          'showStore',
           'subscribeMessage',
           'showNormalUser',
           'showNormalUser',
@@ -110,8 +109,7 @@
           <li><a href="?controller=user&action=home"  <span class="glyphicon glyphicon-home "></span> Kryefaqja</a></li>
 
         <?php endif ?> 
-
-
+        
 
         <?php 
 
@@ -120,6 +118,7 @@
         <?php endif ?> 
       </ul>
 
+       
 
       <ul class="nav navbar-nav navbar-right">
 
@@ -139,12 +138,7 @@
               </li>
               <li>
                 <a  href="?controller=user&action=showVet"> 
-                  <span class="glyphicon glyphicon-user"> </span> Veteriner
-                </a>
-              </li>
-              <li>
-                <a href="?controller=user&action=showStore">
-                  <span class="glyphicon glyphicon-user"> </span>  Dyqan Kafshesh
+                  <span class="glyphicon glyphicon-user"> </span> Artist
                 </a>
               </li>
             </ul>
@@ -154,7 +148,6 @@
         $actions = array(
           'showNormalUser',
           'showVet',
-          'showStore',
           'subscribeMessage',
           'showNormalUser',
           'showNormalUser',
@@ -203,7 +196,6 @@
             $actions = array(
               'showNormalUser',
               'showVet',
-              'showStore',
               'subscribeMessage',
               'showNormalUser',
               'showNormalUser',
@@ -225,7 +217,7 @@
 
 
       </nav>
-      
+       
 
       <?php require_once('routes.php'); ?> 
 
@@ -265,7 +257,7 @@
       <i class="ti-gallery"></i>
       <h4>Evente dhe artikuj</h4>
       <p>Bashkohuni cdo eventi dhe lexoni te rejat me te fudnit.</p>
-      <a href="#" class="cta">Lexo me shume <span class="ti-angle-right"></a>
+      <a href="index.php?controller=user&action=artikuj" class="cta">Lexo me shume <span class="ti-angle-right"></a>
     </div>
 
     <div class="service service2">

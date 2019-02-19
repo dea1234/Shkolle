@@ -1,27 +1,22 @@
-
 var errors;
-
-// NAME VALIDATIONS
-	function usernameValidation()
+//username validation
+    function usernameValidation()
 {
-    var name = document.getElementById('username').value;
-    if(name==''){
-            document.getElementById('nameError').innerHTML="* This field cannot be empty";
-            document.getElementById('nameError').style.color='black';
-            return false;
-    }
-    if(!name.match(/^[a-zA-Z]+[a-z A-Z]+$/g))
+    var username = document.getElementById('username').value;
+
+
+    if(!username.match((/^[a-zA-Z].*[\s\.]*$/g)))
         {
            
-            document.getElementById('nameError').innerHTML="* It can contain only letters";
-            document.getElementById('nameError').style.color='black';
+            document.getElementById('usernameError').innerHTML="* It can contain only letters";
+            document.getElementById('usernameError').style.color='black';
             return false;
         }
     
     else
      {
-            document.getElementById('nameError').innerHTML="Valid";
-            document.getElementById('nameError').style.color='black';
+            document.getElementById('usernameError').innerHTML="Valid";
+            document.getElementById('usernameError').style.color='black';
             
      }
     
@@ -54,7 +49,7 @@ var errors;
                     data: {email: email},
                     success: function (response) {
                         response = response.trim();
-                        if(response == "yes" ){ 
+                        if(response == "Yes" ){ 
 
                                document.getElementById('emailError').innerHTML="* Email already exists in our database";
                                document.getElementById('emailError').style.color='black';
@@ -86,7 +81,7 @@ function passValidation()
      
     if(pass=='')
         {
-            document.getElementById('passError').innerHTML='* Password Cannot be empty';
+            document.getElementById('passError').innerHTML='* Password cannot be empty';
             document.getElementById('passError').style.color='black';
             return false;
         }
@@ -120,11 +115,33 @@ function passValidation()
     }
     
 }
+
+function bioValidation(){
+    var bio = document.getElementById('bio').value;
+     
+    if(bio=='')
+        {
+            document.getElementById('bio').innerHTML='* bio cannot be empty';
+            document.getElementById('bioError').style.color='black';
+            return false; 
+        }
+        else
+         {
+            document.getElementById('bioError').innerHTML='Valid';
+            document.getElementById('bioError').style.color='black';
+         }
+
+}
+
+
 //FORM VALIDATION
-function validateForm()
+ 
+
+
+function validateFormM()
 {
        
-    if(usernameValidation()==false || errors==false || passValidation()==false || emailValidation()==false)
+    if(usernameValidation()==false || errors==false || passValidation()==false || bioValidation()==false ||  emailValidation()==false )
         {   
             
            alert("Please check your information again");            

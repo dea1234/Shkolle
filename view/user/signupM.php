@@ -16,7 +16,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-	<title>Sign Up</title>
+	<title>Sign Up as a Musician</title>
 </head>
 <body>
 	<div class="container">
@@ -28,63 +28,32 @@
 				</div>
 			</div> 
 			<div class="main-login main-center">
-				<form id="mainForm" class="form-horizontal" method="post" action="index.php?controller=user&action=signupVet" enctype="multipart/form-data"  required>
+				<form id="mainForm" class="form-horizontal" method="post" action="index.php?controller=user&action=signupM" enctype="multipart/form-data"  required>
 					
-					<div class="form-group">
-						<label for="fname" class="cols-sm-2 control-label">Emri</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-								<input  type="text" class="form-control" name="fname" id="fname"  placeholder="Emri" required onfocusout="fnameValidation()"/>
-								
-							</div><span id="fnameError"></span>
-						</div>
-					</div>
 
 					<div class="form-group">
-						<label for="lname" class="cols-sm-2 control-label">Mbiemri</label>
+						<label for="username" class="cols-sm-2 control-label">Username</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-								<input  type="text" class="form-control" name="lname" id="lname"  placeholder="Mbiemri" required onfocusout="lnameValidation()"/>
-								
-							</div><span id="lnameError"></span>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="username" class="cols-sm-2 control-label">Klinika</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-								<input  type="text" class="form-control" name="username" id="username"  placeholder="Klinika" required onfocusout="usernameValidation()"/>
+								<input  type="text" class="form-control" name="username" id="username"  placeholder="Username" required onfocusout="usernameValidation()"/>
 								
 							</div><span id="usernameError"></span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="phone" class="cols-sm-2 control-label">Telefoni</label>
+						<label for="phone" class="cols-sm-2 control-label">Bio</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-								<input  type="text" class="form-control" name="phone" id="phone"  placeholder="Telefoni" required onfocusout="phoneValidation()"/>
+								<input  type="text" class="form-control" name="bio" id="bio"  placeholder="Bio" required onfocusout="bioValidation()"/>
 								
-							</div><span id="phoneError"></span>
+							</div><span id="bioError"></span>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="location" class="cols-sm-2 control-label">Adresa</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-								<input  type="text" class="form-control" name="location" id="location"  placeholder="Adresa" required onfocusout="locationValidation()"/>
-								
-							</div><span id="locationError"></span>
-						</div>
-					</div>
-
+					
 					<div class="form-group">
 						<label for="email" class="cols-sm-2 control-label">E-mail</label>
 						<div class="cols-sm-10">
@@ -125,6 +94,6 @@
 	</div>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="validationVet.js"></script>
+	<script src="validationM.js"></script>
 </body>
 </html>

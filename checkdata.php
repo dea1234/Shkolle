@@ -12,15 +12,13 @@ if(isset($_POST["email"])){
 			$result->execute([$email]);
 			$user = $result->fetch();
 
-<<<<<<< HEAD
-			
+
 	if ($user["id"] >'0' ) {
 
    		echo "yes";
 	}
 	else { 
 		echo "no";
-=======
 			$result1 = $db->prepare("SELECT * FROM prof WHERE email = ?");
 			$result1->execute([$email]);
 			$user1 = $result1->fetch();
@@ -35,11 +33,7 @@ if(isset($_POST["email"])){
 	}
 	else { 
 		echo "No";
->>>>>>> 91fd5e281ede724f20b002794f8ce4bbe11ae904
+	} 
 	}
-
 }
-	
-
-
  ?>
