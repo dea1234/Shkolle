@@ -121,7 +121,7 @@ function bioValidation(){
      
     if(bio=='')
         {
-            document.getElementById('bio').innerHTML='* bio cannot be empty';
+            document.getElementById('bioError').innerHTML='*Bio cannot be empty';
             document.getElementById('bioError').style.color='black';
             return false; 
         }

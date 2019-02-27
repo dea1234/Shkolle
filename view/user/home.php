@@ -10,7 +10,6 @@
 body {
     margin: 0;
     font-family: Courier;
-    font-size:50px;
 }
 
 /* The grid: Four equal columns that floats next to each other */
@@ -70,16 +69,16 @@ body {
 <!-- The four columns -->
 <div class="row">
   <div class="column">
-    <img src="view/foto/kafsh8.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
+    <img src="view/foto/foto.png" alt="poster" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="view/foto/kafsh3.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+    <img src="view/foto/foto1.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="view/foto/kafsh5.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+    <img src="view/foto/foto2.png" alt="Mountains" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="view/foto/kafsh9.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
+    <img src="view/foto/foto3.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
   </div>
 </div>
 

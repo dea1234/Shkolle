@@ -31,7 +31,7 @@
 
 			 $controllers = array('posts' => ['index','show', 'addPost', 'showPost', 'indexh'],
 			 					  'pages' => ['home', 'error','welcome','profile','subscribeMessage','search'],
-								  'user' => ['signup','signupVet','login','subscribe', 'logout', 'showNormalUser', 'welcome','showVet','showLogin','confirm', 'home', 'confirmEmail','subscribe', 'artikuj', 'kontakte', 'info']
+								  'user' => ['signup','signupM','login', 'logout', 'showNormalUser', 'welcome','showMUser','showLogin','confirm', 'home', 'confirmEmail', 'artikuj', 'kontakte', 'info']
 
 								);
 

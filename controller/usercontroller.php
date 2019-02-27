@@ -48,19 +48,19 @@ class UserController{
 					$mail->isSMTP();                                      
 					$mail->Host = 'smtp.gmail.com';  
 					$mail->SMTPAuth = true;                               
-					$mail->Username = 'petprojecttaleas@gmail.com';                
-					$mail->Password = 'Serena1234';                           
+					$mail->Username = 'projekt.shkolle.fshn@gmail.com';                
+					$mail->Password = 'shkollefshn';                           
 					$mail->SMTPSecure = 'tls';                            
 					$mail->Port = 587;                                    
 
 
-					$mail->setFrom('petprojecttaleas@gmail.com', '4 Paw Friends');
+					$mail->setFrom('projekt.shkolle.fshn@gmail.com', '4 Paw Friends');
 					$mail->addAddress($email);    
 
 
 					$mail->isHTML(true);                                  
 					$mail->Subject = 'Confirmation email';
-					$mail->Body    = "Please click on the link below to confirm your email <a href='http://localhost/project/index.php?controller=user&action=confirmEmail&email=$email&confirm_code=$created'  >Click here</a>";
+					$mail->Body    = "Please click on the link below to confirm your email <a href='http://localhost/shkolle/index.php?controller=user&action=confirmEmail&email=$email&confirm_code=$created'  >Click here</a>";
 
 					$mail->send();
 					echo 'Message has been sent';
@@ -127,7 +127,7 @@ class UserController{
 					$mail->Host = 'smtp.gmail.com';  
 					$mail->SMTPAuth = true;                               
 					$mail->Username = 'petprojecttaleas@gmail.com';                
-					$mail->Password = 'Serena1234';                           
+					$mail->Password = 'shkollefshn';                           
 					$mail->SMTPSecure = 'tls';                            
 					$mail->Port = 587;                                    
 
@@ -138,7 +138,7 @@ class UserController{
 
 					$mail->isHTML(true);                                  
 					$mail->Subject = 'Confirmation email';
-					$mail->Body    = "Please click on the link below to confirm your email <a href='http://localhost/project/index.php?controller=user&action=confirmEmail&email=$email&confirm_code=$created'  >Click here</a>";
+					$mail->Body    = "Please click on the link below to confirm your email <a href='http://localhost/shkolle/index.php?controller=user&action=confirmEmail&email=$email&confirm_code=$created'  >Click here</a>";
 
 					$mail->send();
 					echo 'Message has been sent';
@@ -318,29 +318,6 @@ class UserController{
           exit();
         }
 			require_once('view/pages/profile.php');
-		}
-
-		public function subscribe(){
-
-			if(isset($_POST["name"])){
-				$name = $_POST["name"];
-			}
-
-			if(isset($_POST["email"])){
-				$email = $_POST["email"];
-			}
-
-			if($name == '' || $email == '' || !filter_var($email, FILTER_VALIDATE_EMAIL) ){
-				header('location: index.php?controller=user&action=home');
-			}
-
-			$created = User::createSubscribeUser($name,$email);
-
-			if($created == true){
-				header('location: index.php?controller=pages&action=subscribeMessage');
-			}
-
-
 		}
 
 

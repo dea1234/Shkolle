@@ -24,13 +24,14 @@
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">4 Paw Friends</h1>
+	               		<h1 class="title">Log in ne Zoom</h1>
 	               		<hr />
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="index.php?controller=user&action=login" >
-						
+				<form class="form-horizontal" method="post" action="index.php?controller=user&action=login" onsubmit="return validateLogin()" required >
+
+
 						
 						<div class="form-group">
 							<label for="email" class="cols-sm-2 control-label">E-mail</label>
@@ -60,11 +61,18 @@
 						<?php if(isset($_SESSION["errors"])) { echo $_SESSION["errors"]; unset($_SESSION["errors"]); } ?>
 						
 
+						<div class="form-group ">
+							<button type="submit"  name="login" id="login" class="btn btn-primary btn-lg btn-block login-button">Log In</button>
+						</div>
+
 				
 						
 					</form>
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="validationLogin.js"></script>
 	</body>
 </html>

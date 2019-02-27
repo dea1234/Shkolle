@@ -22,8 +22,5 @@
       require_once('view/user/error.php');
     }
 
-    public function subscribeMessage(){
-      require_once('view/pages/subscribeMessage.php');
-    }
-  }
+   }
   ?>

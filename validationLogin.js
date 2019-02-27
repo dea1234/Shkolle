@@ -21,7 +21,7 @@ function emailValidation()
                     data: {email: email},
                     success: function (response) {
                         response = response.trim();
-                        if(response == "No" ){ 
+                        if(response == "no" ){ 
 
                                document.getElementById('emailError').innerHTML="* This email doesn't have an account";
                                document.getElementById('emailError').style.color='black';
@@ -45,18 +45,21 @@ function emailValidation()
 
 }
 
-function passValidation()
-{
-     var pass = document.getElementById('password').value;
-     
-    if(pass == '')
-        {
-            document.getElementById('passError').innerHTML='* Password Cannot be empty';
-            document.getElementById('passError').style.color='black';
-            return false;
-        }
-        else {
-            return true;
-        }
 
-}
+
+function validateLogin()
+{
+       
+    if(errors==false ||  emailValidation()==false )
+        {   
+            
+           alert("Please check your information again");            
+          return false;
+        }
+    else{
+       
+        return true;
+    }
+    
+   
+} 

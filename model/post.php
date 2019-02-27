@@ -93,55 +93,7 @@
         }
 
 
-        public function sendSubscribeMail(){
-
-          $db = Db::getInstance();
-
-          $result = $db->prepare("SELECT email FROM subscribe");
-          $result->execute();
-          $user = $result->fetchAll();
         
-          foreach ($user as $key => $email) {
-
-          $mail = new PHPMailer(true);                              
-                try {
-                    //Server settings
-                    $mail->SMTPDebug = 0;                                 
-                    $mail->isSMTP();                                      
-                    $mail->Host = 'smtp.gmail.com';  
-                    $mail->SMTPAuth = true;                               
-                    $mail->Username = 'petprojecttaleas@gmail.com';                
-                    $mail->Password = 'Serena1234';                           
-                    $mail->SMTPSecure = 'tls';                            
-                    $mail->Port = 587;                                    
-
-                    
-                    $mail->setFrom('petprojecttaleas@gmail.com', '4 Paw Friends');
-                    $mail->addAddress($email['email']);    
-
-                  
-                    $mail->isHTML(true);                                  
-                    $mail->Subject = 'New post';
-                    $mail->Body    = "Hey there! Look at this amazing new post <a href='http://localhost/project/index.php?controller=posts&action=showPost&id=$id' >Click here</a>";
-                    $mail->Body    = "Hey there! Look at this amazing new post <a href='http://localhost/taleas/index.php?controller=posts&action=showPost&id=$id' >Click here</a>";
-                    $mail->send();
-                  
-                   
-                 
-                }
-
-                catch (Exception $e) {
-                    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-                }
-                      
-                return true;
-            }
-
-          
-
-
-        }
-
         public static function lastPost($id){
 
             $list = [];
@@ -157,20 +109,6 @@
               return $list;
           
           
-
-        }
-
-
-        public function findAndSubscribe($id){
-
-              $result = $db->prepare("SELECT email,name FROM user WHERE id = ?");
-              $result->execute([$id]);
-              $user = $result->fetch();
-
-             
-
-
-
 
         }
 

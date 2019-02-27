@@ -100,11 +100,7 @@
 
 
 
-    public function subscribeUser() {
-     $id = $_SESSION["id"];
-
-     $subscribed = Post::findAndSubscribe($id);
-   }
+  
 
 
 

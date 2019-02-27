@@ -12,9 +12,8 @@
     <img src="http://i1112.photobucket.com/albums/k497/animalsbeingdicks/abd-3-12-2015.gif~original" height="150" width="150">
   </div>
   <h2>Profili im</h2>
-  <h4>Te dhenat e mia dhe te mikut tim</h4>
-  <p>Pronari i 'Emri i kafshes'</p>
-  <p>Te dhenat e kafshes</p>
+  <h4>Te dhenat e mia</h4>
+  <p>My bio</p>
 </div>
 
 </body>

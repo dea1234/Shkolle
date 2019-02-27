@@ -25,7 +25,7 @@
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">4 Paw Friends</h1>
+	               		<h1 class="title">Behu pjese e Zoom</h1>
 	               		<hr />
 	               	</div>
 	            </div> 

@@ -127,7 +127,6 @@
 			try { 
 
 				
-				
 
 				$db = Db::getInstance();
 
@@ -144,7 +143,7 @@
 				
 
 				
-			}
+			} 
 			catch (PDOException $e) {
 				echo "The user could not be added.<br>".$e->getMessage();
 			}	
@@ -162,10 +161,13 @@
 			$user = $result->fetch();
 
 
-			if($user != '' ){
-				return true;
-			} else return false;
-			
+			if ($user["id"] >'0' ) {
+
+   		return true;
+	}
+	else { 
+		return false;
+	}
 
 		}
 

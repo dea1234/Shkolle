@@ -25,7 +25,7 @@
       </div>
       <div class="col-sm-4" style="background-color: white;">
         <h3>Faleminderit qe u bete pjese e platformes sone!</h3>
-        <h3>Per te aksesuar cdo gje te bukur qe ne ofrojme ju lutemi te konfirmoni email-in tuaj duke ndjekur hapat qe ju paraqiten ne email-in e derguar nga "4 Paw Friends".</h3>
+        <h3 class="text-info">Per te aksesuar faqen ju lutemi te konfirmoni linkun e sapocuar ne email-in tuaj.</h3>
         <h2>Faleminderit!</h2>
        
       </div> 

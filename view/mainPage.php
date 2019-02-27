@@ -1,7 +1,7 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
-    <title>4 Paw Friends</title>
+    <title>Zoom</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -97,7 +97,8 @@
           'showNormalUser',
           'home',
           'showLogin',
-          'indexh'
+          'confirm',
+          'confirmEmail'
         );
 
         ?>
@@ -133,11 +134,11 @@
             <ul class="dropdown-menu">
               <li>
                 <a href="?controller=user&action=showNormalUser">
-                  <span class="glyphicon glyphicon-user">  </span>    Normal user
+                  <span class="glyphicon glyphicon-user">  </span> User Normal
                 </a>
               </li>
               <li>
-                <a  href="?controller=user&action=showVet"> 
+                <a  href="?controller=user&action=showMUser"> 
                   <span class="glyphicon glyphicon-user"> </span> Artist
                 </a>
               </li>
@@ -159,7 +160,7 @@
         if(in_array($action, $actions)  ): ?>
           <li><a href="?controller=user&action=showLogin">
 
-            <?php if($controller=='user' && $action=='showNormalUser'): ?> Jeni te regjistruar? <?php endif ?>  <span class="glyphicon glyphicon-log-in"></span>  Log In</a></li>
+            <?php if($controller=='user' && $action=='showNormalUser'): ?> Jeni te regjistruar? <?php endif ?>  <span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
           <?php endif ?>
 
           <?php 
@@ -185,29 +186,14 @@
 
 
           <?php 
-          if( $action == 'profile'): ?>
+          if( $action == 'profile' || $action == 'welcome'): ?>
             <li>
               <a href="?controller=user&action=logout">  
                 <span class="glyphicon glyphicon-log-out"></span>  Log Out</a>
               </li>
             <?php endif ?>
 
-            <?php 
-            $actions = array(
-              'showNormalUser',
-              'showVet',
-              'subscribeMessage',
-              'showNormalUser',
-              'showNormalUser',
-              'showLogin',
-              'home'
-            );
-
-            ?>
-
-            <?php  if(in_array($action, $actions)): ?>
-              <li><a type="button" class="open-button" onclick="openForm()"> <span class="glyphicon glyphicon-envelope" > </span>  Abonohu</a></li>
-            <?php endif ?>
+        
 
 
           </ul> 
@@ -221,56 +207,31 @@
 
       <?php require_once('routes.php'); ?> 
 
-      <div class="form-popup" id="myForm">
-        <form method="POST" action="index.php?controller=user&action=subscribe" class="form-container">
-          <h1 style="font-family: courier">Abonohu</h1>
-
-          <label for="name"><b>Emri</b></label>
-          <input type="text" placeholder="  Emri" name="name" required>
-
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="  Email" name="email" required>
-
-
-          <button type="submit" class="btn">Abonohu</button>
-          <button class="btn cancel" onclick="closeForm()">Mbyll</button>
-        </form>
-      </div>
-
-      <script>
-        function openForm() {
-          document.getElementById("myForm").style.display = "block";
-        }
-
-        function closeForm() {
-          document.getElementById("myForm").style.display = "none";
-        }
-      </script>
-  
+      
 
 
 
   <section>
-  <p class="section-lead" style="font-size:20px">Cfare ofron platforma jone online ne ndihme te miqve me 4 putra</p>
+  <p class="section-lead" style="font-size:20px">Cfare mund te gjeni ne platformen tone?</p>
   <div class="services-grid">
     <div class="service service1">
       <i class="ti-gallery"></i>
-      <h4>Evente dhe artikuj</h4>
-      <p>Bashkohuni cdo eventi dhe lexoni te rejat me te fudnit.</p>
+      <h4>Evente </h4>
+      <p>Bashkohuni cdo eventi dhe lexoni te rejat me te fundit mbi performancat e artisteve tane.</p>
       <a href="index.php?controller=user&action=artikuj" class="cta">Lexo me shume <span class="ti-angle-right"></a>
     </div>
 
     <div class="service service2">
       <i class="ti-light-bulb"></i>
       <h4>Informacion</h4>
-      <p>Mesoni si te trajtoni kafshet tuaja, nje guide per te qene nje pronar i mire.</p>
+      <p>Mesoni me shume mbi portofolion e muzikanteve tuaj te preferuar.</p>
       <a href="index.php?controller=user&action=info" class="cta">Lexo me shume<span class="ti-angle-right"></a>
     </div>
 
     <div class="service service3">
       <i class="ti-target"></i>
-      <h4>Ndihmoni miqte e humbur</h4>
-      <p>Klikoni per te pare postimet mbi kafshet e humbura, kontaktoni pronarin</p>
+      <h4>Shihni Postimet</h4>
+      <p>Klikoni per te pare postimet e bera</p>
       <a href="index.php?controller=posts&action=indexh" class="cta">Lexo me shume<span class="ti-angle-right"></span></a>
     </div>
   </div>

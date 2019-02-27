@@ -23,7 +23,7 @@
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-					<h1 class="title">4 Paw Friends</h1>
+					<h1 class="title">Behu pjese e Zoom</h1>
 					<hr />
 				</div>
 			</div> 
@@ -43,7 +43,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="phone" class="cols-sm-2 control-label">Bio</label>
+						<label for="bio" class="cols-sm-2 control-label">Bio</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
@@ -51,7 +51,8 @@
 								
 							</div><span id="bioError"></span>
 						</div>
-					</div>
+					</div> 
+
 
 					
 					<div class="form-group">
@@ -77,6 +78,19 @@
 							<span id="passError"></span>
 						</div>
 					</div>
+
+
+  <div class="form-row align-items-center">
+    <div class="col-auto my-1">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Kategori</label>
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
 
 
 
